@@ -55,7 +55,7 @@ def wise(w, i, s, e):
 def recursively_extract(code):
     '''Handles for multiple nested w,i,s,e funcs'''
     extracted = []
-    all_matches = re.findall(r"\('(\w*)','(\w*)','(\w*)','(\w*)'\)", code)
+    all_matches = re.findall(r"\([\'\"](\w*)[\'\"],\s?[\'\"](\w*)[\'\"],\s?[\'\"](\w*)[\'\"],\s?[\'\"](\w*)[\'\"]\)", code)
     for packed in all_matches:
         data = wise(*packed)
         if "w,i,s,e" in data:
